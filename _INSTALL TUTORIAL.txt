@@ -1,0 +1,14 @@
+﻿
+
+
+val a = spark.read.option("header", "true").csv("C:/spark-3.5.2-bin-hadoop3-scala2.13/examples/src/main/resources/people.csv")
+a.show()
+a.printSchema() 
+
+
+val mydata = spark.read.format("csv").option("inferschema", "true").option("header", "true").load("C:\\spark-3.5.3-bin-hadoop3-scala2.13\\examples\\src\\main\\resources\\banking.csv")
+mydata.show()
+mydata.show(50)
+mydata.select($"age", $"y").show()
+mydata.count()
+mydata.count.toDouble
